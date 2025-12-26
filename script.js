@@ -211,8 +211,11 @@ if (contactForm) {
             };
 
             // In a real application, you would send this data to a server
-            // For now, we'll just show a success message
-            console.log('Form submitted with data:', formData);
+            // For demonstration purposes, we're just showing a success message
+            // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+            
+            // For development/debugging only:
+            // console.log('Form submitted with data:', formData);
 
             // Show success message
             const successMessage = document.getElementById('formSuccess');
