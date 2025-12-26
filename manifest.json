@@ -1,0 +1,21 @@
+{
+  "name": "Мария Глинская - Детский Психолог",
+  "short_name": "М. Глинская",
+  "description": "Детский и подростковый психолог в Варшаве. Консультации для детей 3-17 лет очно и онлайн по всей Европе.",
+  "lang": "ru",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6b8cae",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "screenshots": []
+}

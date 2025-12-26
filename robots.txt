@@ -1,0 +1,14 @@
+# robots.txt for mary-psycholog.pages.dev
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://mary-psycholog.pages.dev/sitemap.xml
+
+# Crawl-delay (optional, in seconds)
+# Crawl-delay: 1
