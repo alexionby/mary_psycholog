@@ -276,21 +276,6 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===================================
-// Performance: Lazy Loading Images
-// ===================================
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
-    });
-} else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
-}
-
-// ===================================
 // Performance: Debounce Scroll Events
 // ===================================
 function debounce(func, wait) {
@@ -321,18 +306,6 @@ window.addEventListener('scroll', handleScroll);
 // function gtag(){dataLayer.push(arguments);}
 // gtag('js', new Date());
 // gtag('config', 'YOUR-TRACKING-ID');
-
-// ===================================
-// Service Worker Registration (PWA)
-// ===================================
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment when service worker is implemented
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered:', registration))
-        //     .catch(error => console.log('SW registration failed:', error));
-    });
-}
 
 // ===================================
 // Console Message
