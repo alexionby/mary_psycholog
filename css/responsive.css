@@ -7,6 +7,11 @@
 
 /* Tablet styles */
 @media (max-width: 820px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   .split {
     gap: var(--space-md);
   }
@@ -39,6 +44,41 @@
   .card-grid {
     gap: var(--space-sm);
   }
+
+  /* Hero badges - centered on tablets */
+  .hero-badges {
+    justify-content: center;
+  }
+
+  /* Hero CTA full width */
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .primary-button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .meta-note {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* CTA actions */
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions .primary-button,
+  .cta-actions .ghost-button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 /* Mobile styles */
@@ -50,7 +90,18 @@
   }
 
   .container {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Header fixes */
+  .header-inner {
+    padding: 14px 0;
+  }
+
+  .nav-toggle {
+    padding: 12px 20px;
+    font-size: 13px;
   }
 
   /* Hero section fixes */
@@ -61,6 +112,11 @@
 
   .hero-copy {
     text-align: left;
+  }
+
+  .hero-cta .primary-button {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   h1 {
@@ -93,17 +149,19 @@
   .hero-cta {
     margin: 20px 0 16px;
     gap: 12px;
+    align-items: stretch;
   }
 
-  .primary-button {
+  .hero-cta .primary-button {
     width: 100%;
-    padding: 14px 24px;
+    padding: 16px 24px;
     font-size: 14px;
+    box-sizing: border-box;
   }
 
   .ghost-button {
     width: 100%;
-    padding: 12px 20px;
+    padding: 14px 20px;
     font-size: 14px;
   }
 
@@ -113,10 +171,14 @@
     width: 100%;
   }
 
-  /* Hero badges */
+  /* Hero badges - centered */
   .hero-badges {
-    gap: 8px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
     margin-top: 8px;
+    justify-content: center !important;
+    width: 100%;
   }
 
   .badge {
@@ -127,6 +189,8 @@
   /* Hero portrait */
   .hero-portrait {
     margin-top: 8px;
+    display: flex;
+    justify-content: center;
   }
 
   .photo-placeholder {

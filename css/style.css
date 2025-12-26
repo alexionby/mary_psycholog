@@ -524,6 +524,39 @@ button {
   border: 1px solid var(--color-line);
 }
 
+/* Education section */
+.education-list {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.education-item h3 {
+  font-size: 20px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.education-item .list-columns {
+  grid-template-columns: 1fr;
+}
+
+.education-item .list-columns li {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.education-item .list-columns li strong {
+  color: var(--color-text);
+}
+
+/* Pricing section on about page */
+.pricing-section .card-grid {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -543,18 +576,28 @@ button {
   color: var(--color-text);
 }
 
-.contact-form {
-  display: grid;
-  gap: var(--space-sm);
+.contact-list a:hover {
+  color: var(--color-accent);
 }
 
-.contact-form input,
-.contact-form textarea {
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-line);
-  padding: 12px 14px;
-  font-family: inherit;
-  font-size: 14px;
+.map-block h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.map-block .address {
+  font-size: 16px;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.map-container iframe {
+  display: block;
 }
 
 .map-placeholder {
@@ -597,7 +640,15 @@ button {
 
   .hero-cta {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .hero-badges {
+    justify-content: center;
+  }
+
+  .meta-note {
+    text-align: center;
   }
 
   .cta-box {
@@ -611,7 +662,7 @@ button {
 
 @media (max-width: 520px) {
   .header-inner {
-    padding: 12px 0;
+    padding: 14px 0;
   }
 
   .logo {
@@ -620,8 +671,8 @@ button {
   }
 
   .nav-toggle {
-    padding: 8px 14px;
-    font-size: 11px;
+    padding: 12px 20px;
+    font-size: 13px;
   }
 
   .hero {
