@@ -87,6 +87,7 @@ button {
   justify-content: space-between;
   gap: var(--space-sm);
   padding: var(--space-sm) 0;
+  position: relative;
 }
 
 .logo {
@@ -99,6 +100,28 @@ button {
   gap: var(--space-md);
   font-size: 14px;
   color: var(--color-text-muted);
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.nav-toggle::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url("/img/icon.png") no-repeat center / contain;
+  margin-right: 8px;
 }
 
 .ghost-button,
@@ -549,6 +572,29 @@ button {
     display: none;
   }
 
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ghost-button.header-cta {
+    display: none;
+  }
+
+  body.nav-open .nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: rgba(250, 247, 242, 0.98);
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--color-line);
+  }
+
   .hero-cta {
     flex-direction: column;
     align-items: flex-start;
@@ -560,5 +606,32 @@ button {
 
   .section {
     padding: var(--space-lg) 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .header-inner {
+    padding: 12px 0;
+  }
+
+  .logo {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-toggle {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 8px;
+  }
+
+  .hero-bg-text {
+    font-size: clamp(48px, 16vw, 88px);
+    letter-spacing: 4px;
+    top: 16px;
+    align-items: flex-start;
   }
 }
