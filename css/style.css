@@ -580,6 +580,65 @@ button {
   color: var(--color-accent);
 }
 
+/* Contact with icons */
+.contact-phone {
+  margin-bottom: var(--space-md);
+  font-size: 18px;
+}
+
+.contact-phone .phone-label {
+  font-weight: 600;
+  margin-right: var(--space-xs);
+}
+
+.contact-phone a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.contact-phone a:hover {
+  color: var(--color-accent);
+}
+
+.contact-list-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.contact-list-icons li {
+  flex: 1 1 calc(50% - var(--space-sm));
+  min-width: 140px;
+}
+
+.contact-list-icons a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-list-icons a:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 .map-block h2 {
   margin-bottom: var(--space-xs);
 }
