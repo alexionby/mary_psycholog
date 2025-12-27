@@ -1,13 +1,36 @@
 (() => {
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector("#site-nav");
+  const burger = document.querySelector(".burger");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeBtn = document.querySelector(".mobile-close");
 
-  if (!toggle || !nav) {
+  if (!burger || !mobileMenu) {
     return;
   }
 
-  toggle.addEventListener("click", () => {
-    const isOpen = document.body.classList.toggle("nav-open");
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  function openMenu() {
+    document.body.classList.add("menu-open");
+    burger.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    document.body.classList.remove("menu-open");
+    burger.setAttribute("aria-expanded", "false");
+  }
+
+  burger.addEventListener("click", () => {
+    if (document.body.classList.contains("menu-open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeMenu);
+  }
+
+  // Close menu when clicking on a link
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 })();
