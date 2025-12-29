@@ -366,7 +366,7 @@ body.menu-open .mobile-menu {
 }
 
 .badge {
-  border: 1px solid var(--color-line);
+  border: 1.5px solid rgba(196, 167, 125, 0.65);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
@@ -388,6 +388,14 @@ body.menu-open .mobile-menu {
   place-items: center;
   color: rgba(26, 26, 26, 0.6);
   font-size: 14px;
+}
+
+.hero-photo {
+  width: min(360px, 90%);
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  display: block;
 }
 
 .photo-placeholder.round {
@@ -427,16 +435,17 @@ body.menu-open .mobile-menu {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-sm);
   margin-top: var(--space-md);
 }
 
 .stat-number {
-  font-size: 48px;
+  font-size: clamp(32px, 4.2vw, 42px);
   font-weight: 600;
   font-family: "Playfair Display", "Cormorant Garamond", "Times New Roman", serif;
   display: block;
+  line-height: 1.1;
 }
 
 .stat-label {
@@ -444,6 +453,12 @@ body.menu-open .mobile-menu {
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.about-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .circle-button {
@@ -460,6 +475,15 @@ body.menu-open .mobile-menu {
   display: grid;
   place-items: center;
   text-decoration: none;
+}
+
+.about-visual .circle-button {
+  position: absolute;
+  left: -24px;
+  bottom: -24px;
+  width: clamp(140px, 18vw, 180px);
+  height: clamp(140px, 18vw, 180px);
+  z-index: 2;
 }
 
 .circle-button:hover {
@@ -511,6 +535,10 @@ body.menu-open .mobile-menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-md);
+}
+
+.services-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .card {

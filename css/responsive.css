@@ -45,6 +45,10 @@
     gap: var(--space-sm);
   }
 
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   /* Hero badges - centered on tablets */
   .hero-badges {
     justify-content: center;
@@ -267,6 +271,10 @@
   /* Cards */
   .card-grid {
     gap: 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 
   .card {

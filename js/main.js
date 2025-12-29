@@ -23,6 +23,17 @@ async function loadComponents() {
       console.error('Failed to load footer:', e);
     }
   }
+
+  const servicesPlaceholder = document.getElementById('services-grid-placeholder');
+  if (servicesPlaceholder) {
+    try {
+      const response = await fetch('/components/services-grid.html');
+      const html = await response.text();
+      servicesPlaceholder.outerHTML = html;
+    } catch (e) {
+      console.error('Failed to load services grid:', e);
+    }
+  }
 }
 
 // Initialize mobile menu
