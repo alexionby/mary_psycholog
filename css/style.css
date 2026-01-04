@@ -733,6 +733,12 @@ body.menu-open .mobile-menu {
   margin: 0 auto;
 }
 
+.pricing-section .card h3 {
+  line-height: 1.2;
+  min-height: 3.6em;
+}
+
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
