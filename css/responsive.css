@@ -49,6 +49,15 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .pricing-section .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .help-columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
   /* Hero badges - centered on tablets */
   .hero-badges {
     justify-content: center;
@@ -448,6 +457,10 @@
   }
 
   .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-section .card-grid {
     grid-template-columns: 1fr;
   }
 }
