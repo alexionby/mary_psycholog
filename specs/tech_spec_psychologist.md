@@ -53,7 +53,7 @@ maryglinskaya.com/                              (отдельный HTML-фай�
 maryglinskaya.com/o-sebe                        (отдельный HTML-файл)
 maryglinskaya.com/uslugi/detskaya-terapiya      (отдельный HTML-файл)
 maryglinskaya.com/uslugi/podrostkovaya-terapiya (отдельный HTML-файл)
-maryglinskaya.com/kontakty                      (отдельный HTML-файл)
+maryglinskaya.com/contacts.html                      (отдельный HTML-файл)
 
 Результат:
 → Google видит 10+ отдельных страниц
@@ -303,7 +303,7 @@ maryglinskaya.com/kontakty                      (отдельный HTML-фай�
 
 ---
 
-#### 2.9 Контакты (`kontakty.html`)
+#### 2.9 Контакты (`contacts.html`)
 
 **SEO:**
 ```html
@@ -755,7 +755,7 @@ Sitemap: https://maryglinskaya.com/sitemap.xml
 maryglinskaya.com/
 ├── index.html                          # Главная (детский психолог варшава)
 ├── o-sebe.html                         # О себе
-├── kontakty.html                       # Контакты
+├── contacts.html                       # Контакты
 ├── privacy-policy.html                 # Политика конфиденциальности
 │
 ├── uslugi/
@@ -797,7 +797,7 @@ maryglinskaya.com/
                          |
         +----------------+----------------+
         |                |                |
-    o-sebe.html    uslugi/index.html  kontakty.html
+    o-sebe.html    uslugi/index.html  contacts.html
                          |
         +----------------+----------------+
         |                |                |
@@ -818,7 +818,7 @@ maryglinskaya.com/o-sebe                         → o-sebe.html
 maryglinskaya.com/uslugi                         → uslugi/index.html
 maryglinskaya.com/uslugi/detskaya-terapiya       → uslugi/detskaya-terapiya.html
 maryglinskaya.com/uslugi/podrostkovaya-terapiya  → uslugi/podrostkovaya-terapiya.html
-maryglinskaya.com/kontakty                       → kontakty.html
+maryglinskaya.com/contacts.html                       → contacts.html
 ```
 
 Cloudflare Pages автоматически понимает эту структуру!
@@ -871,7 +871,7 @@ Cloudflare Pages автоматически понимает эту структ
 ### Фаза 1 (MVP) — запустить в первую очередь:
 1. ✅ **Главная страница** (`index.html`)
 2. ✅ **О себе** (`o-sebe.html`)
-3. ✅ **Контакты** (`kontakty.html`)
+3. ✅ **Контакты** (`contacts.html`)
 4. ✅ **Услуги: Детская терапия** (`uslugi/detskaya-terapiya.html`)
 5. ✅ **Услуги: Подростковая терапия** (`uslugi/podrostkovaya-terapiya.html`)
 6. ✅ Базовый CSS/дизайн (общий файл `style.css`)
@@ -934,7 +934,7 @@ Cloudflare Pages автоматически понимает эту структ
             <a href="/">Главная</a>
             <a href="/o-sebe">О себе</a>
             <a href="/uslugi">Услуги</a>
-            <a href="/kontakty">Контакты</a>
+            <a href="/contacts.html">Контакты</a>
         </nav>
     </header>
 
@@ -951,7 +951,7 @@ Cloudflare Pages автоматически понимает эту структ
             </ul>
         </section>
         
-        <a href="/kontakty" class="cta-button">Записаться на консультацию</a>
+        <a href="/contacts.html" class="cta-button">Записаться на консультацию</a>
     </main>
 
     <!-- Footer (одинаковый на всех страницах) -->
@@ -980,7 +980,7 @@ Cloudflare Pages автоматически понимает эту структ
 /public
   ├── index.html                          (отдельный файл)
   ├── o-sebe.html                         (отдельный файл)
-  ├── kontakty.html                       (отдельный файл)
+  ├── contacts.html                       (отдельный файл)
   ├── uslugi/
   │   ├── index.html
   │   ├── detskaya-terapiya.html          (отдельный файл)

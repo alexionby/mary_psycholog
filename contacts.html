@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Контакты психолога Марии Глинской - запись на консультацию</title>
+    <meta name="description" content="Связаться и записаться на консультацию. Telegram, Instagram и адрес кабинета в Варшаве.">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="container text-block">
+          <p class="eyebrow">Контакты</p>
+          <h1>Контакты и локация</h1>
+          <p class="lead">
+            Выберите удобный способ связи — я лично отвечу на все вопросы
+          </p>
+        </div>
+      </section>
+
+      <!-- Секция с контактными ссылками -->
+      <section class="section">
+        <div class="container text-block">
+          <h2>Как связаться</h2>
+          <div class="social-platforms">
+            <a href="https://t.me/m_glin" target="_blank" rel="noopener" class="platform-link">
+              <img src="/img/icons/telegram.png" alt="Telegram" class="platform-icon">
+              <span class="platform-name">Telegram</span>
+            </a>
+            <a href="https://instagram.com/mary_glinskaya" target="_blank" rel="noopener" class="platform-link">
+              <img src="/img/icons/instagram.png" alt="Instagram" class="platform-icon">
+              <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.b17.ru/glinskaya_mary/" target="_blank" rel="noopener" class="platform-link">
+              <img src="/img/icons/b17.png" alt="B17" class="platform-icon">
+              <span class="platform-name">B17</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция с картой -->
+      <section class="section">
+        <div class="container text-block">
+          <h2>Адрес кабинета</h2>
+          <p class="address">г. Варшава, ул. Żurawia 47</p>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.8!2d21.0166!3d52.2256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc8c92692e49%3A0x0!2s%C5%BBurawia%2047%2C%20Warszawa!5e0!3m2!1sru!2spl!4v1703609600000!5m2!1sru!2spl" 
+              width="100%" 
+              height="400" 
+              style="border:0; border-radius: 16px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция с формой обратной связи -->
+      <section class="section">
+        <div class="container text-block">
+          <h2>Задайте свой вопрос</h2>
+          <form class="contact-form" action="mailto:mary@maryglinskaya.com" method="post" enctype="text/plain">
+            <div class="form-field">
+              <label for="contact-name">Ваше имя</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Имя и фамилия">
+            </div>
+            <div class="form-field">
+              <label for="contact-info">Контакты для связи</label>
+              <input id="contact-info" name="contact" type="text" autocomplete="email" placeholder="Email, Telegram или телефон" required>
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Вопрос или запрос</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Напишите, чем могу помочь" required></textarea>
+            </div>
+            <button class="primary-button" type="submit">Отправить запрос</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+      <script src="/js/main.js"></script>
+  </body>
+</html>
