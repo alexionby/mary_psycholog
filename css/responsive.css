@@ -129,6 +129,14 @@
     margin-right: 0;
   }
 
+  .pricing-section .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-section .card h3 {
+    min-height: 0;
+  }
+
   h1 {
     font-size: clamp(32px, 8vw, 48px);
     line-height: 1.1;
@@ -231,16 +239,25 @@
   }
 
   .about-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-top: var(--space-sm);
   }
 
+  .about-stats > div {
+    min-width: 0;
+  }
+
   .stat-number {
-    font-size: 36px;
+    font-size: 32px;
+    word-break: break-word;
   }
 
   .stat-label {
     font-size: 10px;
+    display: block;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .about-visual {
