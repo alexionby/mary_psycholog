@@ -67,6 +67,27 @@ function findHtmlFiles(dir, base = '') {
   return results;
 }
 
+// Simple CSS minification (no dependencies)
+function minifyCSS(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, '')   // remove comments
+    .replace(/\s+/g, ' ')                // collapse whitespace
+    .replace(/\s*([{}:;,>~+])\s*/g, '$1') // remove space around symbols
+    .replace(/;}/g, '}')                 // remove last semicolon
+    .replace(/^\s+|\s+$/g, '');          // trim
+}
+
+// Simple JS minification (remove comments and collapse whitespace)
+function minifyJS(js) {
+  // Remove single-line comments (but not URLs with //)
+  js = js.replace(/(?<![:"'])\/\/(?![/"']).*$/gm, '');
+  // Remove multi-line comments
+  js = js.replace(/\/\*[\s\S]*?\*\//g, '');
+  // Collapse whitespace (careful with strings)
+  js = js.replace(/\n\s*\n/g, '\n');
+  return js.trim();
+}
+
 // Main build
 function build() {
   console.log('Building site...');
@@ -81,6 +102,21 @@ function build() {
   const components = loadComponents();
   console.log(`Loaded components: ${Object.keys(components).join(', ')}`);
 
+  // Combine and minify CSS
+  const styleCss = fs.readFileSync(path.join(__dirname, 'css', 'style.css'), 'utf-8');
+  const responsiveCss = fs.readFileSync(path.join(__dirname, 'css', 'responsive.css'), 'utf-8');
+  const combinedCSS = minifyCSS(styleCss + '\n' + responsiveCss);
+  fs.mkdirSync(path.join(DIST_DIR, 'css'), { recursive: true });
+  fs.writeFileSync(path.join(DIST_DIR, 'css', 'style.min.css'), combinedCSS);
+  console.log(`  CSS: ${(styleCss.length + responsiveCss.length)} → ${combinedCSS.length} bytes (minified + combined)`);
+
+  // Minify JS
+  const mainJs = fs.readFileSync(path.join(__dirname, 'js', 'main.js'), 'utf-8');
+  const minJs = minifyJS(mainJs);
+  fs.mkdirSync(path.join(DIST_DIR, 'js'), { recursive: true });
+  fs.writeFileSync(path.join(DIST_DIR, 'js', 'main.min.js'), minJs);
+  console.log(`  JS: ${mainJs.length} → ${minJs.length} bytes (minified)`);
+
   // Process HTML templates
   const htmlFiles = findHtmlFiles(SRC_DIR);
   console.log(`Processing ${htmlFiles.length} HTML files...`);
@@ -91,15 +127,29 @@ function build() {
 
     fs.mkdirSync(path.dirname(destPath), { recursive: true });
 
-    const template = fs.readFileSync(srcPath, 'utf-8');
-    const html = processTemplate(template, components);
-    fs.writeFileSync(destPath, html);
+    let template = fs.readFileSync(srcPath, 'utf-8');
+    let html = processTemplate(template, components);
 
+    // Replace CSS references with combined minified version
+    html = html.replace(
+      /\s*<link rel="stylesheet" href="\/css\/style\.css">\s*\n\s*<link rel="stylesheet" href="\/css\/responsive\.css">/,
+      '\n    <link rel="stylesheet" href="/css/style.min.css">'
+    );
+
+    // Replace JS reference with minified version and add defer
+    html = html.replace(
+      '<script src="/js/main.js"></script>',
+      '<script src="/js/main.min.js" defer></script>'
+    );
+
+    fs.writeFileSync(destPath, html);
     console.log(`  ${relPath}`);
   }
 
-  // Copy static assets
+  // Copy static assets (skip css/js since we handle them above)
   for (const asset of STATIC_ASSETS) {
+    if (asset === 'css' || asset === 'js') continue; // already handled
+
     const srcPath = path.join(__dirname, asset);
     const destPath = path.join(DIST_DIR, asset);
 
