@@ -101,10 +101,10 @@ function build() {
   console.log(`Loaded components: ${Object.keys(components).join(', ')}`);
 
   // Combine CSS (no aggressive minification — Cloudflare handles gzip)
-  const fontsCss = fs.readFileSync(path.join(__dirname, 'css', 'fonts.css'), 'utf-8');
+  // Note: fonts.css is NOT included here — @font-face is in critical.css (inlined in <head>)
   const styleCss = fs.readFileSync(path.join(__dirname, 'css', 'style.css'), 'utf-8');
   const responsiveCss = fs.readFileSync(path.join(__dirname, 'css', 'responsive.css'), 'utf-8');
-  const combinedCSS = minifyCSS(fontsCss + '\n' + styleCss + '\n' + responsiveCss);
+  const combinedCSS = minifyCSS(styleCss + '\n' + responsiveCss);
   fs.mkdirSync(path.join(DIST_DIR, 'css'), { recursive: true });
   fs.writeFileSync(path.join(DIST_DIR, 'css', 'style.min.css'), combinedCSS);
   console.log(`  CSS: ${(styleCss.length + responsiveCss.length)} → ${combinedCSS.length} bytes (combined)`);
@@ -134,10 +134,10 @@ function build() {
     let template = fs.readFileSync(srcPath, 'utf-8');
     let html = processTemplate(template, components);
 
-    // Inline critical CSS and load full CSS async
+    // Inline critical CSS (includes @font-face) and load full CSS async
     html = html.replace(
       /\s*<link rel="stylesheet" href="\/css\/style\.css">\s*\n\s*<link rel="stylesheet" href="\/css\/responsive\.css">/,
-      `\n    <style>${criticalInline}</style>\n    <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">\n    <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>`
+      `\n    <style>${criticalInline}</style>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-cyrillic.woff2" crossorigin>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-cyrillic.woff2" crossorigin>\n    <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">\n    <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>`
     );
 
     // Replace JS reference with minified version and add defer
