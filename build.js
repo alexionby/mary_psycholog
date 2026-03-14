@@ -6,7 +6,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const COMPONENTS_DIR = path.join(__dirname, 'components');
 
 // Static directories/files to copy to dist
-const STATIC_ASSETS = ['css', 'js', 'img', 'robots.txt', 'sitemap.xml'];
+const STATIC_ASSETS = ['css', 'js', 'img', 'fonts', 'robots.txt', 'sitemap.xml'];
 
 // Load component templates
 function loadComponents() {
@@ -101,9 +101,10 @@ function build() {
   console.log(`Loaded components: ${Object.keys(components).join(', ')}`);
 
   // Combine CSS (no aggressive minification — Cloudflare handles gzip)
+  const fontsCss = fs.readFileSync(path.join(__dirname, 'css', 'fonts.css'), 'utf-8');
   const styleCss = fs.readFileSync(path.join(__dirname, 'css', 'style.css'), 'utf-8');
   const responsiveCss = fs.readFileSync(path.join(__dirname, 'css', 'responsive.css'), 'utf-8');
-  const combinedCSS = minifyCSS(styleCss + '\n' + responsiveCss);
+  const combinedCSS = minifyCSS(fontsCss + '\n' + styleCss + '\n' + responsiveCss);
   fs.mkdirSync(path.join(DIST_DIR, 'css'), { recursive: true });
   fs.writeFileSync(path.join(DIST_DIR, 'css', 'style.min.css'), combinedCSS);
   console.log(`  CSS: ${(styleCss.length + responsiveCss.length)} → ${combinedCSS.length} bytes (combined)`);
