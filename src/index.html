@@ -36,10 +36,12 @@
     }
     </script>
     <link rel="icon" type="image/png" href="/img/favicon.png">
-    <link rel="preload" as="image" href="/img/photos/img_06.jpg">
+    <link rel="preload" as="image" type="image/webp" href="/img/photos/img_06.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
   </head>
@@ -71,7 +73,10 @@
             </div>
           </div>
           <div class="hero-portrait fade-in" style="animation-delay: 0.1s;">
-            <img class="hero-photo" src="/img/photos/img_06.jpg" alt="Мария Глинская - детский и подростковый психолог" loading="eager">
+            <picture>
+              <source srcset="/img/photos/img_06.webp" type="image/webp">
+              <img class="hero-photo" src="/img/photos/img_06.jpg" alt="Мария Глинская - детский и подростковый психолог" loading="eager" width="800" height="800" fetchpriority="high">
+            </picture>
             <a class="circle-button hero-circle" href="/o-sebe.html#education">
               Обо мне →
             </a>
