@@ -67,14 +67,12 @@ function findHtmlFiles(dir, base = '') {
   return results;
 }
 
-// Simple CSS minification (no dependencies)
+// Safe CSS minification — only remove comments and extra whitespace
 function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '')   // remove comments
-    .replace(/\s+/g, ' ')                // collapse whitespace
-    .replace(/\s*([{}:;,>~+])\s*/g, '$1') // remove space around symbols
-    .replace(/;}/g, '}')                 // remove last semicolon
-    .replace(/^\s+|\s+$/g, '');          // trim
+    .replace(/\n\s*\n/g, '\n')          // collapse blank lines
+    .trim();
 }
 
 // Simple JS minification (remove comments and collapse whitespace)
@@ -102,13 +100,18 @@ function build() {
   const components = loadComponents();
   console.log(`Loaded components: ${Object.keys(components).join(', ')}`);
 
-  // Combine and minify CSS
+  // Combine CSS (no aggressive minification — Cloudflare handles gzip)
   const styleCss = fs.readFileSync(path.join(__dirname, 'css', 'style.css'), 'utf-8');
   const responsiveCss = fs.readFileSync(path.join(__dirname, 'css', 'responsive.css'), 'utf-8');
   const combinedCSS = minifyCSS(styleCss + '\n' + responsiveCss);
   fs.mkdirSync(path.join(DIST_DIR, 'css'), { recursive: true });
   fs.writeFileSync(path.join(DIST_DIR, 'css', 'style.min.css'), combinedCSS);
-  console.log(`  CSS: ${(styleCss.length + responsiveCss.length)} → ${combinedCSS.length} bytes (minified + combined)`);
+  console.log(`  CSS: ${(styleCss.length + responsiveCss.length)} → ${combinedCSS.length} bytes (combined)`);
+
+  // Load critical CSS for inlining in <head>
+  const criticalCss = fs.readFileSync(path.join(__dirname, 'css', 'critical.css'), 'utf-8');
+  const criticalInline = minifyCSS(criticalCss);
+  console.log(`  Critical CSS: ${criticalInline.length} bytes (will be inlined)`);
 
   // Minify JS
   const mainJs = fs.readFileSync(path.join(__dirname, 'js', 'main.js'), 'utf-8');
@@ -130,10 +133,10 @@ function build() {
     let template = fs.readFileSync(srcPath, 'utf-8');
     let html = processTemplate(template, components);
 
-    // Replace CSS references with combined minified version
+    // Inline critical CSS and load full CSS async
     html = html.replace(
       /\s*<link rel="stylesheet" href="\/css\/style\.css">\s*\n\s*<link rel="stylesheet" href="\/css\/responsive\.css">/,
-      '\n    <link rel="stylesheet" href="/css/style.min.css">'
+      `\n    <style>${criticalInline}</style>\n    <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">\n    <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>`
     );
 
     // Replace JS reference with minified version and add defer
