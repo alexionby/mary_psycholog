@@ -134,10 +134,10 @@ function build() {
     let template = fs.readFileSync(srcPath, 'utf-8');
     let html = processTemplate(template, components);
 
-    // Inline critical CSS (includes @font-face) and load full CSS async
+    // Inline critical CSS (includes @font-face) and load combined CSS
     html = html.replace(
       /\s*<link rel="stylesheet" href="\/css\/style\.css">\s*\n\s*<link rel="stylesheet" href="\/css\/responsive\.css">/,
-      `\n    <style>${criticalInline}</style>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-cyrillic.woff2" crossorigin>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-cyrillic.woff2" crossorigin>\n    <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">\n    <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>`
+      `\n    <style>${criticalInline}</style>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-cyrillic.woff2" crossorigin>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-cyrillic.woff2" crossorigin>\n    <link rel="stylesheet" href="/css/style.min.css">`
     );
 
     // Replace JS reference with minified version and add defer
