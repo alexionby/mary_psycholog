@@ -3,28 +3,78 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>О психологе Марии Глинской - опыт и подход</title>
-    <meta name="description" content="Мария Глинская - психолог и детский терапевт. Опыт практики с 2017 года, работа с детьми, подростками и семьями.">
+    <title>О психологе Марии Глинской — опыт и подход | Варшава</title>
+    <meta name="description" content="Мария Глинская — психолог, магистр психологических наук. 8+ лет работы с детьми, подростками и семьями. Гештальт-терапия, арт-терапия в Варшаве.">
+    <link rel="canonical" href="https://maryglinskaya.com/o-sebe.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maryglinskaya.com/o-sebe.html">
+    <meta property="og:title" content="О психологе Марии Глинской — опыт и подход | Варшава">
+    <meta property="og:description" content="Мария Глинская — психолог, магистр психологических наук. 8+ лет работы с детьми, подростками и семьями. Гештальт-терапия, арт-терапия в Варшаве.">
+    <meta property="og:image" content="https://maryglinskaya.com/img/photos/img_06.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Мария Глинская — Психолог">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Мария Глинская — Детский и подростковый психолог",
+      "url": "https://maryglinskaya.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Żurawia 47",
+        "addressLocality": "Варшава",
+        "addressCountry": "PL"
+      },
+      "image": "https://maryglinskaya.com/img/photos/img_06.jpg",
+      "description": "Детский и подростковый психолог в Варшаве. Консультации для детей, подростков и родителей.",
+      "priceRange": "130-180 zł",
+      "sameAs": [
+        "https://instagram.com/mary_glinskaya",
+        "https://www.b17.ru/glinskaya_mary/"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://maryglinskaya.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "О себе",
+          "item": "https://maryglinskaya.com/o-sebe.html"
+        }
+      ]
+    }
+    </script>
     <link rel="icon" type="image/png" href="/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
   </head>
   <body>
-    <div id="header-placeholder"></div>
+    {{header}}
 
     <main>
-      <!-- <section class="page-hero">
+      <section class="page-hero">
         <div class="container text-block">
           <p class="eyebrow">Обо мне</p>
-          <h1>О психологе — Мария Глинская</h1>
+          <h1>Психолог Мария Глинская — о себе и подходе</h1>
           <p class="lead">
             Дипломированный психолог, магистр психологических наук. Консультирую взрослых, детей и подростков по различным запросам. Если чувствуете, что нужна поддержка и хочется изменений, буду рада пройти этот путь вместе.
           </p>
         </div>
-      </section> -->
+      </section>
 
       <section class="section fade-in">
         <div class="container split">
@@ -51,7 +101,10 @@
             </div>
           </div>
           <div class="about-visual">
-            <img class="about-photo" src="/img/photos/img_01.png" alt="Мария Глинская - психолог" loading="lazy">
+            <picture>
+              <source srcset="/img/photos/img_01.webp" type="image/webp">
+              <img class="about-photo" src="/img/photos/img_01.jpg" alt="Мария Глинская - психолог" loading="lazy" width="800" height="1067">
+            </picture>
           </div>
         </div>
       </section>
@@ -159,7 +212,7 @@
       </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    {{footer}}
       <script src="/js/main.js"></script>
   </body>
 </html>

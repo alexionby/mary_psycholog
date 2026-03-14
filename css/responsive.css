@@ -500,6 +500,23 @@
     font-size: 12px;
   }
 
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+
   /* Contact page */
   .contact-grid {
     gap: var(--space-md);
