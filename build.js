@@ -6,7 +6,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const COMPONENTS_DIR = path.join(__dirname, 'components');
 
 // Static directories/files to copy to dist
-const STATIC_ASSETS = ['css', 'js', 'img', 'fonts', 'robots.txt', 'sitemap.xml'];
+const STATIC_ASSETS = ['css', 'js', 'img', 'fonts', 'robots.txt', 'sitemap.xml', '_redirects'];
 
 // Load component templates
 function loadComponents() {
@@ -138,6 +138,12 @@ function build() {
     html = html.replace(
       /\s*<link rel="stylesheet" href="\/css\/style\.css">\s*\n\s*<link rel="stylesheet" href="\/css\/responsive\.css">/,
       `\n    <style>${criticalInline}</style>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-cyrillic.woff2" crossorigin>\n    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-cyrillic.woff2" crossorigin>\n    <link rel="stylesheet" href="/css/style.min.css">`
+    );
+
+    // Inject Google Analytics 4
+    html = html.replace(
+      '</head>',
+      `    <!-- Google tag (gtag.js) -->\n    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR6VF3MQN"></script>\n    <script>\n      window.dataLayer = window.dataLayer || [];\n      function gtag(){dataLayer.push(arguments);}\n      gtag('js', new Date());\n      gtag('config', 'G-TGR6VF3MQN');\n    </script>\n  </head>`
     );
 
     // Replace JS reference with minified version and add defer

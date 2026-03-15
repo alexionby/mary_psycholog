@@ -52,7 +52,7 @@ function initNavActiveState() {
     const href = link.getAttribute('href');
     if (href === currentPath ||
         (currentPath === '/' && href === '/') ||
-        (currentPath.startsWith('/uslugi') && href === '/uslugi/') ||
+        (currentPath.startsWith('/services') && href === '/services/') ||
         (currentPath.startsWith('/blog') && href === '/blog/')) {
       link.style.color = 'var(--color-text)';
     }

@@ -58,6 +58,13 @@
 ### Блог
 - Редизайн: карточки → вертикальный список (дата, тег, описание, ссылка)
 
+### URL-структура (Фаза 7)
+- Переименование URL с русской транслитерации на английские: `/o-sebe.html` → `/about.html`, `/uslugi/` → `/services/`
+- Все 6 страниц услуг: child-therapy, teen-therapy, adult-therapy, parent-counseling, online-therapy, group-sessions
+- 301-редиректы через Cloudflare Pages `_redirects` (старые URL → новые)
+- Обновлены: canonical, og:url, JSON-LD breadcrumbs, cross-links, sitemap.xml
+- Блог-посты НЕ переименованы (сохранены русскоязычные URL)
+
 ---
 
 ## Что дальше

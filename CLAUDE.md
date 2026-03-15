@@ -42,16 +42,16 @@ Each page has:
 mary_psycholog/
 ├── src/                          # Source HTML templates (edit these!)
 │   ├── index.html                # Homepage
-│   ├── o-sebe.html               # About page
+│   ├── about.html                # About page
 │   ├── contacts.html             # Contact page
-│   ├── uslugi/                   # Services section
+│   ├── services/                 # Services section
 │   │   ├── index.html            # Services overview
-│   │   ├── detskaya-terapiya.html
-│   │   ├── podrostkovaya-terapiya.html
-│   │   ├── konsultacii-roditelej.html
-│   │   ├── konsultacii-dlya-vzroslyh.html
-│   │   ├── onlajn-terapiya.html
-│   │   └── gruppovye-zanyatiya.html
+│   │   ├── child-therapy.html
+│   │   ├── teen-therapy.html
+│   │   ├── parent-counseling.html
+│   │   ├── adult-therapy.html
+│   │   ├── online-therapy.html
+│   │   └── group-sessions.html
 │   └── blog/                     # Blog articles
 │       ├── index.html
 │       ├── kak-pomoch-rebenku-s-trevozhnostyu.html
