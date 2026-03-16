@@ -172,11 +172,38 @@ function initAnimations() {
   initParallax();
 }
 
+// GA4 event tracking
+function initAnalytics() {
+  if (typeof gtag !== 'function') return;
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+
+    // Track outbound clicks: Telegram, Instagram, B17
+    if (href.includes('t.me/')) {
+      gtag('event', 'contact_click', { method: 'telegram' });
+    } else if (href.includes('instagram.com/')) {
+      gtag('event', 'contact_click', { method: 'instagram' });
+    } else if (href.includes('b17.ru/')) {
+      gtag('event', 'contact_click', { method: 'b17' });
+    }
+
+    // Track "Записаться" button clicks
+    if (link.classList.contains('header-cta') || link.classList.contains('mobile-cta') || link.classList.contains('circle-button')) {
+      gtag('event', 'cta_click', { location: link.classList.contains('header-cta') ? 'header' : link.classList.contains('mobile-cta') ? 'mobile_menu' : 'page_body' });
+    }
+  });
+}
+
 // Run on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initNavActiveState();
   initAnimations();
+  initAnalytics();
 });
 
 // Run reveal animations after page fully loaded (for images, etc.)

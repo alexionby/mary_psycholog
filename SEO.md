@@ -65,6 +65,11 @@
 - Обновлены: canonical, og:url, JSON-LD breadcrumbs, cross-links, sitemap.xml
 - Блог-посты НЕ переименованы (сохранены русскоязычные URL)
 
+### Аналитика (Фаза 8)
+- Google Analytics 4 подключён (G-TGR6VF3MQN) — инжектится в `<head>` через `build.js`
+- Consent Mode v2 настроен: denied by default для ЕЭЗ (без cookie-баннера)
+- Event tracking в `js/main.js`: `contact_click` (telegram/instagram/b17), `cta_click` (header/mobile_menu/page_body)
+
 ---
 
 ## Что дальше
@@ -75,8 +80,9 @@
 - [ ] Каждая статья — полноценный SEO-оптимизированный HTML с JSON-LD Article schema
 
 ### Аналитика (приоритет: высокий)
-- [ ] Подключить Google Analytics 4 (GA4)
-- [ ] Настроить цели: клик на "Записаться", переход в Telegram, просмотр страницы контактов
+- [x] Подключить Google Analytics 4 (GA4) — G-TGR6VF3MQN, инжектится через build.js
+- [x] Настроить Consent Mode v2 для ЕЭЗ (denied by default, без cookie-баннера)
+- [x] Настроить цели: contact_click (telegram/instagram/b17), cta_click (header/mobile/page_body)
 
 ### Внешние факторы (приоритет: средний)
 - [ ] Обновить профиль на b17.ru — добавить ссылку на сайт
