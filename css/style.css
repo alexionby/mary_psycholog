@@ -731,7 +731,7 @@ body.menu-open .mobile-menu {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-md);
   margin-top: var(--space-md);
 }
@@ -760,10 +760,6 @@ body.menu-open .mobile-menu {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.stat-number-text {
-  font-size: clamp(18px, 2.5vw, 24px);
 }
 
 .stat-label {
@@ -1827,7 +1823,4 @@ body.menu-open .mobile-menu {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .about-stats > div:last-child {
-    grid-column: span 2;
-  }
 }

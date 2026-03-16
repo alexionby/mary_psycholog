@@ -325,10 +325,6 @@
     padding: 12px;
   }
 
-  .about-stats > div:last-child {
-    grid-column: span 2;
-  }
-
   .stat-number {
     font-size: 28px;
     word-break: break-word;
@@ -690,10 +686,6 @@
 
   .about-stats {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .about-stats > div:last-child {
-    grid-column: span 2;
   }
 
   .stat-number {
