@@ -569,28 +569,6 @@ body.menu-open .mobile-menu {
   z-index: 1;
 }
 
-.hero-bg-text {
-  position: absolute;
-  inset: 0;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(60px, 12vw, 140px);
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(196, 167, 125, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  white-space: nowrap;
-  animation: floatText 20s ease-in-out infinite;
-}
-
-@keyframes floatText {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-20px); }
-}
-
 .hero-copy {
   position: relative;
   z-index: 1;
@@ -1815,13 +1793,6 @@ body.menu-open .mobile-menu {
 
   .hero {
     padding-top: 8px;
-  }
-
-  .hero-bg-text {
-    font-size: clamp(48px, 16vw, 88px);
-    letter-spacing: 4px;
-    top: 16px;
-    align-items: flex-start;
   }
 
   .hero::before,

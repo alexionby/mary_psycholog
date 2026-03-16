@@ -781,10 +781,6 @@
     color: black;
   }
 
-  .hero-bg-text {
-    display: none;
-  }
-
   .card {
     break-inside: avoid;
     box-shadow: none;
