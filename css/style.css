@@ -479,6 +479,10 @@ body.menu-open .mobile-menu {
   position: relative;
 }
 
+.section.section-flush-top {
+  padding-top: var(--space-md);
+}
+
 .section-title {
   margin-bottom: var(--space-lg);
 }
