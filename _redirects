@@ -7,3 +7,15 @@
 /uslugi/konsultacii-dlya-vzroslyh.html /services/adult-therapy 301
 /uslugi/onlajn-terapiya.html /services/online-therapy 301
 /uslugi/gruppovye-zanyatiya.html /services/group-sessions 301
+
+# .html → pretty URL redirects
+/contacts.html /contacts 301
+/about.html /about 301
+/services/child-therapy.html /services/child-therapy 301
+/services/teen-therapy.html /services/teen-therapy 301
+/services/parent-counseling.html /services/parent-counseling 301
+/services/adult-therapy.html /services/adult-therapy 301
+/services/online-therapy.html /services/online-therapy 301
+/services/group-sessions.html /services/group-sessions 301
+/blog/kak-pomoch-rebenku-s-trevozhnostyu.html /blog/kak-pomoch-rebenku-s-trevozhnostyu 301
+/blog/adaptaciya-v-novoj-strane.html /blog/adaptaciya-v-novoj-strane 301
